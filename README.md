@@ -1,2 +1,2 @@
-# data34_project
-Wrapper API
+# data534_project
+Wrapper API for https://pokeapi.co/
