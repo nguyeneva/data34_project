@@ -55,9 +55,10 @@ initializeDataFrame <- function(){
     cat('\r', i)
     flush.console()
   }
+  pokeframe
 }
 
-initializeDataFrame()
+pokeframe <- initializeDataFrame()
 
 summary <- function(infoType){
   if (infoType == "habitat"){
