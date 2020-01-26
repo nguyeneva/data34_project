@@ -1,6 +1,18 @@
+#' Create a Data Frame from API call
+#'
+#' The initializeDataFrame() function sends two get requests to Pokemon API. The API calls
+#' return data in the format of JSON and gets parsed by jsonlite. Data from both API
+#' calls are appended to a data frame.
+#'
+#'
+#' @return A data frame
+
+
 library(httr)
 library(tidyverse)
 library(dplyr)
+
+# Creating initial get request
 poke_api <- function(path){
   url <- modify_url("https://pokeapi.co", path=paste("/api/v2",path, sep=""))
   response <- GET(url)
@@ -14,20 +26,26 @@ poke_api <- function(path){
 initializeDataFrame <- function(){
   pokeList <- poke_api("/generation/1")
 
+  # JSON parser
   pokeList <- jsonlite::fromJSON(content(pokeList, "text"), simplifyVector = FALSE)
   numPokemon <- length(pokeList$pokemon_species)
+
+  # Initializing data frame
   pokeframe <- data.frame(idx = 1:numPokemon, pokemon = 1:numPokemon, speciesURL = 1:numPokemon, habitat = 1:numPokemon, captureRate = 1:numPokemon, type = 1:numPokemon, moves=1:numPokemon)
   for ( i in 1:numPokemon){
+    # Adding pokemon name, url, and index to the data frame
     pokeframe$pokemon[i] <- pokeList$pokemon_species[[i]]$name
     pokeframe$speciesURL[i] <- pokeList$pokemon_species[[i]]$url
     shortStr <- str_extract(substr(pokeframe$speciesURL[i],nchar(pokeframe$speciesURL[1])-4,nchar(pokeframe$speciesURL[1])), "(?<![0-9])/.*")
     pokeframe$idx[i] <- substr(shortStr,2,nchar(shortStr)-1)
+    # First API call
     # Get species info (habitate, capture rate, base happiness)
     currSpecies <- poke_api(paste("/pokemon-species/",pokeframe$idx[i],sep=""))
     currSpecies <- jsonlite::fromJSON(content(currSpecies, "text"), simplifyVector = FALSE)
     pokeframe$habitat[i] <- currSpecies$habitat[[1]]
     pokeframe$captureRate[i] <- currSpecies$capture_rate
-    # Get pokemon type
+    # Second API call
+    # Get pokemon type and moves
     currPokemon <- poke_api(paste("/pokemon/",pokeframe$idx[i],sep=""))
     currPokemon <- jsonlite::fromJSON(content(currPokemon, "text"), simplifyVector = FALSE)
     # Get pokemon moves
@@ -40,6 +58,7 @@ initializeDataFrame <- function(){
     for (k in 1:end){
       move<-c(move,currPokemon$moves[[k]]$move$name)
       move<-paste(move,collapse=",")}
+    # Get pokemon type
     curType <- currPokemon$types
     type <- ""
     for (j in 1:length(curType)){
@@ -49,7 +68,9 @@ initializeDataFrame <- function(){
         type = paste(type,", ",curType[[j]]$type$name, sep="")
       }
     }
+    # Adding pokemon move to data frame
     pokeframe$moves[i] <- move
+    # Adding pokemon type to data frame
     pokeframe$type[i] <- type
     Sys.sleep(1.5)
     cat('\r', i)
@@ -60,51 +81,37 @@ initializeDataFrame <- function(){
 
 pokeframe <- initializeDataFrame()
 
+
+#' Create a Data Frame with Aggregated Data from pokeframe
+#'
+#' The summary() function counts the number of pokemon and mean of capture rate grouped
+#' by either 'habitat' or type' from pokeframe data frame.
+#'
+#'
+#' @param 'habitat' or 'type'
+#' @return A data frame
+
 summary <- function(infoType){
   if (infoType == "habitat"){
-    #count of pokemon in habitat
-    #data.frame(table(pokeframe$habitat))
+    # Count of pokemon in each habitat
     group_by(pokeframe, habitat) %>% summarise(pokemonCount=n(), meanCaptureRate=round(mean(captureRate, na.rm = TRUE)))
   } else if (infoType == "type"){
+    # Count of pokemon in each type
     group_by(pokeframe, type) %>% summarise(pokemonCount=n(), meanCaptureRate=round(mean(captureRate, na.rm = TRUE)))
   } else{
     print("Invalid Request")
   }
 }
 
+#' Create a Data Frame Filtered by Pokemon
+#'
+#' The poke.filter() function filters the pokeframe data frame by pokemon names
+#' selected in a vector,
+#'
+#'
+#' @param A vector with pokemon names
+#' @return A data frame
 
 poke.filter <- function(vec){
   subset(pokeframe, pokemon %in% vec)
 }
-poke.filter(c('dragonite','snorlax'))
-
-
-habitatSummary <- summary('habitat')
-typeSummary <- summary('type')
-
-habitatSummary$pokemonCount
-typeSummary
-
-barplot(habitatSummary$pokemonCount, names.arg=habitatSummary$habitat, las=2,col="#FFCC33")
-par(mar=c(7,3,3,0))
-mtext(side=3, line=0.5, "Count of Pokemon by Habitat", col="red", font=3, cex=2)
-mtext(side=1, line=4.5, "Habitat", col="blue", font=2,cex=1.2)
-mtext(side=2, line=2, "Count of Pokemons", col="blue", font=2, cex=1.2)
-
-barplot(habitatSummary$meanCaptureRate, names.arg=habitatSummary$habitat, las=2,col="#FFCC33")
-par(mar=c(7,3,3,0))
-mtext(side=3, line=0.5, "Mean Capture Rate by Habitat", col="red", font=3, cex=2)
-mtext(side=1, line=4.5, "Habitat", col="blue", font=2,cex=1.2)
-mtext(side=2, line=2, "Mean Capture Rate", col="blue", font=2, cex=1.2)
-
-barplot(typeSummary$pokemonCount, names.arg=typeSummary$type, las=2,col="#FFCC33")
-par(mar=c(7,3,3,0))
-mtext(side=3, line=0.5, "Count of Pokemon by Type", col="red", font=3, cex=2)
-mtext(side=1, line=4.5, "Type", col="blue", font=2,cex=1.2)
-mtext(side=2, line=2, "Count of Pokemons", col="blue", font=2, cex=1.2)
-
-barplot(typeSummary$meanCaptureRate, names.arg=typeSummary$type, las=2,col="#FFCC33")
-par(mar=c(7,3,3,0))
-mtext(side=3, line=0.5, "Mean Capture Rate by Type", col="blue", font=3, cex=2)
-mtext(side=1, line=4.5, "Type", col="red", font=2,cex=1.2)
-mtext(side=2, line=2, "Mean Capture Rate", col="red", font=2, cex=1.2)
