@@ -63,7 +63,6 @@ pokeframe <- initializeDataFrame()
 summary <- function(infoType){
   if (infoType == "habitat"){
     #count of pokemon in habitat
-    #data.frame(table(pokeframe$habitat))
     group_by(pokeframe, habitat) %>% summarise(pokemonCount=n(), meanCaptureRate=round(mean(captureRate, na.rm = TRUE)))
   } else if (infoType == "type"){
     group_by(pokeframe, type) %>% summarise(pokemonCount=n(), meanCaptureRate=round(mean(captureRate, na.rm = TRUE)))
@@ -76,35 +75,3 @@ summary <- function(infoType){
 poke.filter <- function(vec){
   subset(pokeframe, pokemon %in% vec)
 }
-poke.filter(c('dragonite','snorlax'))
-
-
-habitatSummary <- summary('habitat')
-typeSummary <- summary('type')
-
-habitatSummary$pokemonCount
-typeSummary
-
-barplot(habitatSummary$pokemonCount, names.arg=habitatSummary$habitat, las=2,col="#FFCC33")
-par(mar=c(7,3,3,0))
-mtext(side=3, line=0.5, "Count of Pokemon by Habitat", col="red", font=3, cex=2)
-mtext(side=1, line=4.5, "Habitat", col="blue", font=2,cex=1.2)
-mtext(side=2, line=2, "Count of Pokemons", col="blue", font=2, cex=1.2)
-
-barplot(habitatSummary$meanCaptureRate, names.arg=habitatSummary$habitat, las=2,col="#FFCC33")
-par(mar=c(7,3,3,0))
-mtext(side=3, line=0.5, "Mean Capture Rate by Habitat", col="red", font=3, cex=2)
-mtext(side=1, line=4.5, "Habitat", col="blue", font=2,cex=1.2)
-mtext(side=2, line=2, "Mean Capture Rate", col="blue", font=2, cex=1.2)
-
-barplot(typeSummary$pokemonCount, names.arg=typeSummary$type, las=2,col="#FFCC33")
-par(mar=c(7,3,3,0))
-mtext(side=3, line=0.5, "Count of Pokemon by Type", col="red", font=3, cex=2)
-mtext(side=1, line=4.5, "Type", col="blue", font=2,cex=1.2)
-mtext(side=2, line=2, "Count of Pokemons", col="blue", font=2, cex=1.2)
-
-barplot(typeSummary$meanCaptureRate, names.arg=typeSummary$type, las=2,col="#FFCC33")
-par(mar=c(7,3,3,0))
-mtext(side=3, line=0.5, "Mean Capture Rate by Type", col="blue", font=3, cex=2)
-mtext(side=1, line=4.5, "Type", col="red", font=2,cex=1.2)
-mtext(side=2, line=2, "Mean Capture Rate", col="red", font=2, cex=1.2)
