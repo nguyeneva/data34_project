@@ -1,13 +1,4 @@
-#' Create a Data Frame from API call
-#'
-#' The initializeDataFrame() function sends two get requests to Pokemon API. The API calls
-#' return data in the format of JSON and gets parsed by jsonlite. Data from both API
-#' calls are appended to a data frame.
-#'
-#'
-#' @return A data frame
-
-
+# Library Imports
 library(httr)
 library(tidyverse)
 library(dplyr)
@@ -22,6 +13,16 @@ poke_api <- function(path){
   }
   response
 }
+
+
+#' Create a Data Frame from API call
+#'
+#' The initializeDataFrame() function sends two get requests to Pokemon API. The API calls
+#' return data in the format of JSON and gets parsed by jsonlite. Data from both API
+#' calls are appended to a data frame.
+#'
+#'
+#' @return A data frame
 
 initializeDataFrame <- function(){
   pokeList <- poke_api("/generation/1")
@@ -79,9 +80,6 @@ initializeDataFrame <- function(){
   pokeframe
 }
 
-pokeframe <- initializeDataFrame()
-
-
 #' Create a Data Frame with Aggregated Data from pokeframe
 #'
 #' The summary() function counts the number of pokemon and mean of capture rate grouped
@@ -91,7 +89,7 @@ pokeframe <- initializeDataFrame()
 #' @param 'habitat' or 'type'
 #' @return A data frame
 
-summary <- function(infoType){
+summary <- function(pokeframe, infoType){
   if (infoType == "habitat"){
     # Count of pokemon in each habitat
     group_by(pokeframe, habitat) %>% summarise(pokemonCount=n(), meanCaptureRate=round(mean(captureRate, na.rm = TRUE)))
@@ -112,6 +110,32 @@ summary <- function(infoType){
 #' @param A vector with pokemon names
 #' @return A data frame
 
-poke.filter <- function(vec){
-  subset(pokeframe, pokemon %in% vec)
+poke.filter <- function(pokeframe, vec){
+  if (is.data.frame(pokeframe)){
+    # Checks if the passed in pokeframe is a data frame
+    pokeFilter <- subset(pokeframe, pokemon %in% vec)
+    if (nrow(pokeFilter) > 0){
+      # Checks if any of the pokemon to be filtered for were in the passed in pokeframe
+      if (nrow(pokeFilter) == length(vec)){
+        # Returns the filtered dataframe if all pokemon passed in were found
+        pokeFilter
+      } else{
+        # Notifies the user if any pokemon were not found and returns the dataframe of the pokemon that were found
+        print("Some of the requested pokemon were not generation 1, the generation 1 pokemon are listed below")
+        pokeFilter
+      }
+    } else{
+      # If none of the desired pokemon were found
+      if (length(vec)>1){
+        # If the filter was for more than 1 pokemon
+        print("Requested pokemon are not from generation 1")
+      } else{
+        # If the filter was for 1 pokemon
+        print("Requested pokemon is not from generation 1")
+      }
+    }
+  } else{
+    # If the passed in pokeframe isn't a data frame
+    print("pokeframe must be a data frame")
+  }
 }
