@@ -5,15 +5,19 @@ library(dplyr)
 
 # Creating initial get request
 poke_api <- function(path){
-  url <- modify_url("https://pokeapi.co", path=paste("/api/v2",path, sep=""))
-  response <- GET(url)
-
-  if (http_type(response) != "application/json"){
-    stop("API did not return json", call. = FALSE)
-  }
+  out <- tryCatch(
+    {
+      url <- modify_url("https://pokeapi.co", path=paste("/api/v2",path, sep=""))
+      response <- GET(url)
+      if (http_type(response) != "application/json"){
+        stop("API did not return json", call. = FALSE)
+      }
+  },
+  error=function(cond){
+    print("Unable to reach API")
+  })
   response
 }
-
 
 #' Create a Data Frame from API call
 #'
