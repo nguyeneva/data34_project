@@ -119,7 +119,7 @@ poke.filter <- function(pokeframe, vec){
     # Checks if the passed in pokeframe is a data frame
     pokeFilter <- subset(pokeframe, pokemon %in% vec)
     if (nrow(pokeFilter) > 0){
-      # Checks if any of the pokemon to be filtered for were in the passed in pokeframe
+      # Checks if any of the pokem  on to be filtered for were in the passed in pokeframe
       if (nrow(pokeFilter) == length(vec)){
         # Returns the filtered dataframe if all pokemon passed in were found
         pokeFilter
