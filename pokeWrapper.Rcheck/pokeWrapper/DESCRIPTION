@@ -1,6 +1,6 @@
 Package: pokeWrapper
 Type: Package
-Title: Wrapper Package for Pokemon API 
+Title: Wrapper Package for Pokemon API
 Version: 1.0.0
 Authors@R: 
     person("Eva", "Nguyen", email = "nguyenevaa@gmail.com", role = c("aut", "cre"))
@@ -10,11 +10,12 @@ Description: An R wrapper for the Pokemon API. More information on the API at ht
     package has two functions available. The function, poke.filter(), returns a data frame 
     based on pokemons requested. The function, summary(), returns a data frame with 
     aggregates of pokemon counts and mean capture rate by habitat or type. 
-Depends:
-	httr,
-	tidyverse,
-	dplyr
+Depends: httr, tidyverse, dplyr
 RoxygenNote: 7.0.2
-Suggests: 
-    testthat (>= 2.1.0)
+Suggests: testthat (>= 2.1.0)
 License: GPL-3
+NeedsCompilation: no
+Packaged: 2020-01-28 20:20:41 UTC; connor
+Author: Connor Lee [aut, cre]
+Maintainer: Connor Lee <connordlee15@gmail.com>
+Built: R 3.6.2; ; 2020-01-28 20:20:45 UTC; unix

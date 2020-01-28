@@ -1,0 +1,101 @@
+* using log directory ‘/home/connor/Desktop/MDS/projects/data_534/data534_project/pokeWrapper.Rcheck’
+* using R version 3.6.2 (2019-12-12)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* using options ‘--no-manual --as-cran’
+* checking for file ‘pokeWrapper/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘pokeWrapper’ version ‘1.0.0’
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking serialization versions ... OK
+* checking whether package ‘pokeWrapper’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  ‘coverageTest_pokeWrapper.R’
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... WARNING
+'::' or ':::' import not declared from: ‘jsonlite’
+Packages in Depends field not imported from:
+  ‘dplyr’ ‘httr’ ‘tidyverse’
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+initializeDataFrame: no visible global function definition for
+  ‘content’
+initializeDataFrame: no visible global function definition for
+  ‘str_extract’
+initializeDataFrame: no visible global function definition for
+  ‘flush.console’
+poke.filter: no visible binding for global variable ‘pokemon’
+poke_api: no visible global function definition for ‘modify_url’
+poke_api: no visible global function definition for ‘GET’
+poke_api: no visible global function definition for ‘http_type’
+summary: no visible global function definition for ‘%>%’
+summary: no visible global function definition for ‘group_by’
+summary: no visible binding for global variable ‘habitat’
+summary: no visible global function definition for ‘summarise’
+summary: no visible global function definition for ‘n’
+summary: no visible binding for global variable ‘captureRate’
+summary: no visible binding for global variable ‘type’
+Undefined global functions or variables:
+  %>% GET captureRate content flush.console group_by habitat http_type
+  modify_url n pokemon str_extract summarise type
+Consider adding
+  importFrom("utils", "flush.console")
+to your NAMESPACE file.
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... WARNING
+Undocumented code objects:
+  ‘poke_api’
+All user-level objects in a package should have documentation entries.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'poke.filter'
+  ‘pokeframe’ ‘vec’
+Documented arguments not in \usage in documentation object 'poke.filter':
+  ‘A’
+
+Undocumented arguments in documentation object 'summary'
+  ‘pokeframe’ ‘infoType’
+Documented arguments not in \usage in documentation object 'summary':
+  ‘'habitat'’
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ... NONE
+* checking for unstated dependencies in ‘tests’ ... OK
+* checking tests ...

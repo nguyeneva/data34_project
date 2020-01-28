@@ -1,0 +1,4 @@
+initializeDataFrame     Create a Data Frame from API call
+poke.filter             Create a Data Frame Filtered by Pokemon
+summary                 Create a Data Frame with Aggregated Data from
+                        pokeframe
