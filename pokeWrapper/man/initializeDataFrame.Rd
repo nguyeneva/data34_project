@@ -2,7 +2,7 @@
 % Please edit documentation in R/pokeWrapper.R
 \name{initializeDataFrame}
 \alias{initializeDataFrame}
-\title{Create a Data Frame from API call}
+\title{Create a Data Frame from pokeAPI call}
 \usage{
 initializeDataFrame()
 }
