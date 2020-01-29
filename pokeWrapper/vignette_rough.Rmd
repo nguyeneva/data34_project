@@ -1,0 +1,47 @@
+---
+title: "Pokemon API R Wrapper"
+author: "Connor Lee and Eva Nguyen"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This package provides an R wrapper for the Pokemon API.   
+
+* Provides a data frame of pokemons from Generation 1 and functions to transform the data frame 
+* More information on the API documentation can be found at the official website: [Poke API](https://pokeapi.co/)
+
+## Installation 
+Developer GitHub Version
+```
+library(devtools)   
+devtools::install_github("nguyeneva/data534_project/pokeWrapper")
+```
+**Attention**  
+The `devtools` package will need to be installed.
+
+## Loading  <font size="3">pokeWrapper</font> Library
+```
+library(pokeWrapper)
+```
+
+## <font size="3">pokeframe</font> Data Frame
+Loading data into console
+```
+pokeframe
+```
+```{r, eval=TRUE, include=FALSE}
+library(devtools)
+devtools::install_github("nguyeneva/playground_/pokeWrapper")
+library(pokeWrapper)
+```
+**Sample Output**   
+```{r}
+head(pokeframe)
+```
+
+
+## Filtering Data Frame <font size="3">poke.filter</font>
+
