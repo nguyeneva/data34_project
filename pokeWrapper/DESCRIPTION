@@ -13,8 +13,10 @@ Description: An R wrapper for the Pokemon API. More information on the API at ht
 Depends:
 	httr,
 	tidyverse,
-	dplyr
+	dplyr,
+	jsonlite
 RoxygenNote: 7.0.2
-Suggests: 
+Suggests:
     testthat (>= 2.1.0)
 License: GPL-3
+Encoding: UTF-8

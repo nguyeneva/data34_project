@@ -14,3 +14,8 @@ The initializeDataFrame() function sends two get requests to Pokemon API. The AP
 return data in the format of JSON and gets parsed by jsonlite. Data from both API
 calls are appended to a data frame.
 }
+\examples{
+\dontrun{
+pokeframe <- initializeDataFrame()
+}
+}

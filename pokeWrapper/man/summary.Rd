@@ -7,7 +7,9 @@
 summary(pokeframe, infoType)
 }
 \arguments{
-\item{'habitat'}{or 'type'}
+\item{pokeframe}{The data frame of pokemon to summarise}
+
+\item{infoType}{The type of information to summarise 'habitat' or 'type'}
 }
 \value{
 A data frame
@@ -15,4 +17,10 @@ A data frame
 \description{
 The summary() function counts the number of pokemon and mean of capture rate grouped
 by either 'habitat' or type' from pokeframe data frame.
+}
+\examples{
+\dontrun{
+summary(pokeframe, 'habitat')
+summary(pokeframe, 'type')
+}
 }

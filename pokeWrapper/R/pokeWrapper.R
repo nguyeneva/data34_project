@@ -1,10 +1,10 @@
-# Library Imports
-library(httr)
-library(tidyverse)
-library(dplyr)
 
 # Creating initial get request
 #'
+#' The poke_api() function takes in variable part of the path required
+#' for the GET request to the pokeAPI servers.
+#'
+#' @import jsonlite httr tidyverse dplyr
 #'
 #' @param path The pokeAPI parameter to pull data for
 #'
@@ -39,8 +39,10 @@ poke_api <- function(path){
 #' @return A data frame
 #' @export
 #'
-#' @example
-#' head(initializeDataFrame())
+#' @examples
+#' \dontrun{
+#' pokeframe <- initializeDataFrame()
+#' }
 
 initializeDataFrame <- function(){
   pokeList <- poke_api("/generation/1")
@@ -104,8 +106,17 @@ initializeDataFrame <- function(){
 #' by either 'habitat' or type' from pokeframe data frame.
 #'
 #'
-#' @param 'habitat' or 'type'
+#' @param pokeframe The data frame of pokemon to summarise
+#' @param infoType The type of information to summarise 'habitat' or 'type'
+#'
 #' @return A data frame
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' summary(pokeframe, 'habitat')
+#' summary(pokeframe, 'type')
+#' }
 
 summary <- function(pokeframe, infoType){
   if (infoType == "habitat"){
@@ -125,8 +136,17 @@ summary <- function(pokeframe, infoType){
 #' selected in a vector,
 #'
 #'
-#' @param A vector with pokemon names
+#' @param pokeframe The data frame of pokemon to summarise
+#' @param vec the name(s) of the pokemon being filtered, accepts a string for a single pokemon, or a list for multiple
+#'
 #' @return A data frame
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' poke.filter(pokeframe, "jigglypuff")
+#' poke.filter(pokeframe, c("pikachu", "bulbasaur", "charmander", "squirtle"))
+#' }
 
 poke.filter <- function(pokeframe, vec){
   if (is.data.frame(pokeframe)){
