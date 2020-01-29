@@ -1,5 +1,5 @@
 
-# Creating initial get request
+# Creating pokeAPI get requests
 #'
 #' The poke_api() function takes in variable part of the path required
 #' for the GET request to the pokeAPI servers.
@@ -29,7 +29,7 @@ poke_api <- function(path){
   response
 }
 
-#' Create a Data Frame from API call
+#' Create a Data Frame from pokeAPI call
 #'
 #' The initializeDataFrame() function sends two get requests to Pokemon API. The API calls
 #' return data in the format of JSON and gets parsed by jsonlite. Data from both API
