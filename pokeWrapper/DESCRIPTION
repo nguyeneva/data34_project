@@ -15,7 +15,7 @@ Depends:
 	tidyverse,
 	stringr,
 	dplyr,
-	jsonlite
+	jsonlite  
 RoxygenNote: 7.0.2
 Suggests:
     testthat (>= 2.1.0)
