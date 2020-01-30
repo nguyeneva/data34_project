@@ -4,7 +4,7 @@
 #' The poke_api() function takes in variable part of the path required
 #' for the GET request to the pokeAPI servers.
 #'
-#' @import jsonlite httr tidyverse dplyr
+#' @import jsonlite httr tidyverse stringr dplyr
 #'
 #' @param path The pokeAPI parameter to pull data for
 #'
@@ -13,6 +13,8 @@
 #'
 #' @examples
 #' poke_api("/pokemon-species/1")
+
+utils::globalVariables(c("pokemon", "habitat", "captureRate", "type"))
 
 poke_api <- function(path){
   out <- tryCatch(
@@ -95,7 +97,6 @@ initializeDataFrame <- function(){
     pokeframe$type[i] <- type
     Sys.sleep(1.5)
     cat('\r', i)
-    flush.console()
   }
   pokeframe
 }
