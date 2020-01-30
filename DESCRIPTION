@@ -2,7 +2,9 @@ Package: pokeWrapper
 Type: Package
 Title: Wrapper Package for Pokemon API 
 Version: 1.0.0
-Author: Eva Nguyen & Connor Lee
+Authors@R: 
+    person("Eva", "Nguyen", email = "nguyenevaa@gmail.com", role = c("aut", "cre"))
+    person("Connor", "Lee", email = "connordlee15@gmail.com", role = c("aut", "cre"))
 Description: An R wrapper for the Pokemon API. More information on the API at https://	
     pokeapi.co/. A data frame of the first 151 pokemons from Generation 1 is returned. The
     package has two functions available. The function, poke.filter(), returns a data frame 
@@ -11,7 +13,12 @@ Description: An R wrapper for the Pokemon API. More information on the API at ht
 Depends:
 	httr,
 	tidyverse,
-	dplyr
-RoxygenNote: 6.1.1
-Suggests: 
+	stringr,
+	dplyr,
+	jsonlite
+RoxygenNote: 7.0.2
+Suggests:
     testthat (>= 2.1.0)
+License: GPL-3
+Encoding: UTF-8
+
