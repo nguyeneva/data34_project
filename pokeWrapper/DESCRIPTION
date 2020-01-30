@@ -21,4 +21,3 @@ Suggests:
     testthat (>= 2.1.0)
 License: GPL-3
 Encoding: UTF-8
-before_install: R -e 'source("https://install-github.me/r-lib/remotes")'

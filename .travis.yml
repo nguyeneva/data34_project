@@ -6,3 +6,6 @@ r:
 os:
   - linux
   - osx
+
+before_install: 
+  - R -e 'source("https://install-github.me/r-lib/remotes")'
