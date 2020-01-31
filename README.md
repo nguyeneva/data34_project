@@ -1,6 +1,8 @@
 # pokeAPI R Wrapper
 ### data534_project
 
+  [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/nguyeneva/data534_project?branch=master&svg=true)](https://ci.appveyor.com/project/nguyeneva/data534_project)
+
 This package is an API wrapper in R for https://pokeapi.co/. It is specifically for getting, filtering, and summarizing the following information for each of the generation 1 pokemon.
 
 - pokedex index number (idx)
