@@ -1,7 +1,6 @@
----
-title: "Pokémon API R Wrapper"
-author: "Connor Lee and Eva Nguyen"
----
+## Pokémon API R Wrapper
+##### Authors: Connor Lee and Eva Nguyen
+
 
 [![Build Status](https://travis-ci.org/nguyeneva/data534_project.svg?branch=master)](https://travis-ci.org/nguyeneva/data534_project)
 
