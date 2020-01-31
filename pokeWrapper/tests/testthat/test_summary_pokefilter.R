@@ -6,9 +6,9 @@ pokeframe <- read_csv("pokeframe.csv")
 
 # Testing the possible outputs of the summary function
 test_that("summary function is summarizing the data correctly",{
-    expect_equal_to_reference(summary(pokeframe, 'habitat'), 'habitat.rds')
+  expect_equal_to_reference(summary(pokeframe, 'habitat'), 'habitat.rds')
   expect_equal_to_reference(summary(pokeframe, 'type'), 'type.rds')
-  expect_output(summary(pokeframe, 'test'), 'Invalid Request')
+  expect_output(summary(pokeframe, 'test'), "Invalid Request")
 })
 
 # Testing the possible outputs of the poke.filter function
