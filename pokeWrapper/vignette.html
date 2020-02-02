@@ -329,7 +329,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p>More information on the API documentation can be found at the official website: <a href="https://pokeapi.co/">Poké API</a></p>
 <div id="api-call-methodology" class="section level2">
 <h2>API Call Methodology</h2>
-<p>Created a <code>poke_api</code> function to call Pokémon API. Used <code>httr</code> library to send a simple GET request to the Pokémon API endpoint. The API returns an HTTP response with a status code, headers, and a body in JSON format. An error message is returned if the HTTP response does not return a body in JSON format. The <code>poke_api</code> takes a url path for generation 1 as a parameter to complete the GET request.</p>
+<p>Created a <code>poke_api</code> function to call the Pokémon API. Used the <code>httr</code> library to send a simple GET request to the Pokémon API endpoint. The API returns an HTTP response with a status code, headers, and a body in JSON format. An error message is returned if the HTTP response does not return a body in JSON format. The <code>poke_api</code> takes a url path as a parameter. URL path for generation 1 is used to complete the GET request.</p>
 <pre><code>library(httr)
 
 poke_api &lt;- function(path){
@@ -409,7 +409,7 @@ The <code>devtools</code> package will need to be installed.</p>
 </div>
 <div id="incorrect-inputs-for-the-poke.filter-function" class="section level2">
 <h2>Incorrect Inputs for the <font size="3">poke.filter</font> Function</h2>
-<p>If an incorrectly spelled pokemon name, or a non-generation 1 Pokémon is passed in amoung a list of generation 1 pokemon then only the correctly spelled, or generation 1 pokemon will be filtered for, and a message indicating that some of the pokemon are not from generation 1. If none of the pokemon passed in are from generation 1 a message indicating this will be printed to the R Console.</p>
+<p>If an incorrectly spelled Pokémon name, or a non-generation 1 Pokémon is passed in amoung a list of generation 1 Pokémon then only the correctly spelled, or generation 1 Pokémon will be filtered for, and a message indicating that some of the Pokémon are not from generation 1. If none of the Pokémon passed in are from generation 1 a message indicating this will be printed to the R Console.</p>
 <p>If the pokeframe passed into the function is not a data frame then a message will be printed on the R Console indicating that the <code>pokeframe</code> must be a data frame.</p>
 </div>
 <div id="using-the-summary-function" class="section level2">
