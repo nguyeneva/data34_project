@@ -1,7 +1,7 @@
 ## Pokémon API R Wrapper
 ##### Authors: Connor Lee and Eva Nguyen
 
-Travis 
+Travis
 [![Build Status](https://travis-ci.org/nguyeneva/data534_project.svg?branch=master)](https://travis-ci.org/nguyeneva/data534_project)
 
 AppVeyor [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/nguyeneva/data534_project?branch=master&svg=true)](https://ci.appveyor.com/project/nguyeneva/data534_project)
@@ -16,10 +16,10 @@ This package provides an R wrapper for the Pokémon API. It is specifically for 
   - habitat
   - type
   - top 5 moves (moves)    
-    
+
 More information on the API documentation can be found at the official website: [Poke API](https://pokeapi.co/)
 
-## Installation 
+## Installation
 Developer GitHub Version
 ```
 library(devtools)   
@@ -82,7 +82,7 @@ poke.filter(pokeframe, "jigglypuff")
 ##    captureRate          type                                             moves
 ## 58         170 fairy, normal pound,double-slap,mega-punch,fire-punch,ice-punch
 ```
-**Filtering multiple Pokémons**
+**Filtering multiple Pokémon**
 ```
 poke.filter(pokeframe, c("dragonite","snorlax"))
 ```
@@ -111,7 +111,7 @@ The `summary()` function can be used to provide a data frame summary for the fol
 - **Pokemon Type:**
   - Count of Pokémon per type
   - Mean capture rate per type
-  
+
 **For example:**     
 **Using habitat option**
 ```
@@ -155,7 +155,7 @@ summary(pokeframe, 'type')
 ## Incorrect Inputs for the <font size="4">summary</font> Function
 If an incorrect parameter is passed into the summary function a message will be printed in the R Console stating that the request was invalid.
 
-## Plotting with <font size="4">pokeWrapper</font> 
+## Plotting with <font size="4">pokeWrapper</font>
 The summary data can be plotted through the following steps:
 
 1. Create a `pokeframe`
@@ -170,6 +170,6 @@ barplot(habitatSummary$pokemonCount, names.arg=habitatSummary$habitat, las=2,col
 par(mar=c(7,3,3,0))
 mtext(side=3, line=0.5, "Count of Pokemon by Habitat", col="red", font=3, cex=2)
 mtext(side=1, line=4.5, "Habitat", col="blue", font=2,cex=1.2)
-mtext(side=2, line=2, "Count of Pokemons", col="blue", font=2, cex=1.2)
+mtext(side=2, line=2, "Count of Pokemon", col="blue", font=2, cex=1.2)
 ```
-![](habitat_summary_plot.jpeg)
+![](habitat_summary_plot.png)

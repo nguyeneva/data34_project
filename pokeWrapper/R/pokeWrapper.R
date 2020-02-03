@@ -52,7 +52,7 @@ poke_api <- function(path){
 
 #' Create a Data Frame from pokeAPI call
 #'
-#' The initializeDataFrame() function sends two get requests to Pokemon API. The API calls
+#' The initializeDataFrame() function sends two get requests to Pokémon API. The API calls
 #' return data in the format of JSON and gets parsed by jsonlite. Data from both API
 #' calls are appended to a data frame.
 #'
@@ -122,7 +122,7 @@ initializeDataFrame <- function(){
 
 #' Create a Data Frame with Aggregated Data from pokeframe
 #'
-#' The summary() function counts the number of pokemon and mean of capture rate grouped
+#' The summary() function counts the number of Pokémon and mean of capture rate grouped
 #' by either 'habitat' or type' from pokeframe data frame.
 #'
 #'
@@ -150,7 +150,7 @@ summary <- function(pokeframe, infoType){
   }
 }
 
-#' Create a Data Frame Filtered by Pokemon
+#' Create a Data Frame Filtered by Pokémon
 #'
 #' The poke.filter() function filters the pokeframe data frame by pokemon names
 #' selected in a vector,
