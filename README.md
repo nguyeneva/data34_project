@@ -8,24 +8,24 @@ AppVeyor [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/g
 
 
 
-This package provides an R wrapper for the Pokémon API. It is specifically for getting, filtering, and summarizing the following information for each of the generation 1 Pokémon.  
+This package provides an R wrapper for the Pokémon API. It is specifically for getting, filtering, and summarizing the following information for each of the generation 1 Pokémon.
 
   - pokedex index number (idx)
   - pokemon species (pokemon)
   - API URL for pokemon species (speciesURL)
   - habitat
   - type
-  - top 5 moves (moves)    
+  - top 5 moves (moves)
 
 More information on the API documentation can be found at the official website: [Poke API](https://pokeapi.co/)
 
 ## Installation
 Developer GitHub Version
 ```
-library(devtools)   
+library(devtools)
 devtools::install_github("nguyeneva/data534_project/pokeWrapper")
 ```
-**Attention**  
+**Attention**
 The `devtools` package will need to be installed.
 
 ## Loading  <font size="3">pokeWrapper</font> Library
@@ -69,9 +69,9 @@ head(pokeframe)
 ```
 
 ## Filtering Data Frame <font size="4">poke.filter</font>
-Once the pokeframe has been initialized the data can be filtered using the `poke.filter()` function for any generation 1 Pokémon. The first argument is the `pokeframe` and the second argument is either a single Pokémon or a list of Pokémon.  
+Once the pokeframe has been initialized the data can be filtered using the `poke.filter()` function for any generation 1 Pokémon. The first argument is the `pokeframe` and the second argument is either a single Pokémon or a list of Pokémon.
 
-**For example:**     
+**For example:**
 **Filtering individual Pokémon**
 ```
 poke.filter(pokeframe, "jigglypuff")
@@ -112,7 +112,7 @@ The `summary()` function can be used to provide a data frame summary for the fol
   - Count of Pokémon per type
   - Mean capture rate per type
 
-**For example:**     
+**For example:**
 **Using habitat option**
 ```
 summary(pokeframe, 'habitat')
