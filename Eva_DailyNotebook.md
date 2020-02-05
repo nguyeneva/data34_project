@@ -37,4 +37,11 @@ Friday, 1/31/20
 * Connor and I realized we both started on the documentation separately. He made his edits on the README.md file and I made mine on a .rmd file. I had to research what was the difference between a README.md file and a Vignette for R packages. I found online that both files can essentially have the same information, but README.md is more front facing for GitHub and Vignette can included more details and code about the package
 * I consolidated Connor's README.md edits with my own edits and worked on formatting for both documents. Both README.md and Vignette have the same information, but Vignette has additional information about the API call methodology. The reason is we wanted to provide users with more details about 'what is going on under the hood' since the package only returns a data frame
 * Added both Travis BI and AppVeyor build stamps to README.md file
-* Fixed all 'Pokemons' to 'Pokemon' since I realized 'Pokemons' is not a word in our documentations and graphs
+
+Sunday, 2/2/20
+* Created a proper markdown daily notebook and uploaded it to Github
+* Removed irrelevant files from our Github repository 
+* Knitted Vignette rmarkdown to a PDF
+* Fixed all 'Pokemons' to 'Pokemon' since I realized 'Pokemons' is not a word in all our documentations and graphs
+
+
