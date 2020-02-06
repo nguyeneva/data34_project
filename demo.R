@@ -7,7 +7,9 @@ pokeframe <- initializeDataFrame()
 
 
 head(pokeframe)
+
 poke.filter(pokeframe, "jigglypuff")
+
 poke.filter(pokeframe, c("dragonite","snorlax"))
 
 summary(pokeframe, 'habitat')
@@ -15,8 +17,12 @@ summary(pokeframe, 'habitat')
 summary(pokeframe, 'type')
 
 habitatSummary <- summary(pokeframe, 'habitat')
-plot(habitatSummary$pokemonCount, names.arg=habitatSummary$habitat, las=2,col="#FFCC33")
+barplot(habitatSummary$pokemonCount, names.arg=habitatSummary$habitat, las=2,col="#FFCC33")
 par(mar=c(7,3,3,0))
 mtext(side=3, line=0.5, "Count of Pokémon by Habitat", col="red", font=3, cex=2)
 mtext(side=1, line=4.5, "Habitat", col="blue", font=2,cex=1.2)
 mtext(side=2, line=2, "Count of Pokémon", col="blue", font=2, cex=1.2)
+
+
+  
+

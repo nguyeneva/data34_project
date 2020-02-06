@@ -127,6 +127,10 @@ pokeframe <- initializeDataFrame()
 habitatSummary <- summary(pokeframe, 'habitat')
 ```
 
+```{r, inclue=FALSE}
+par(mar=c(5,5,0,0))
+```
+
 ```{r, eval=FALSE}
 pokeframe <- initializeDataFrame()
 habitatSummary <- summary(pokeframe, 'habitat')

@@ -44,4 +44,10 @@ Sunday, 2/2/20
 * Knitted Vignette rmarkdown to a PDF
 * Fixed all 'Pokemons' to 'Pokemon' since I realized 'Pokemons' is not a word in all our documentations and graphs
 
+Tuesday, 2/4/20
+* Uploaded demo.R file for our presentation
+
+Wednesday, 2/5/20
+* Fixed graph screenshot because the x-axis labels were cut off
+
 
