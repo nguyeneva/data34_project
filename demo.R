@@ -5,6 +5,8 @@ library(pokeWrapper)
 
 pokeframe <- initializeDataFrame()
 
+?poke.filter
+?pokeframe
 
 head(pokeframe)
 
@@ -24,5 +26,7 @@ mtext(side=1, line=4.5, "Habitat", col="blue", font=2,cex=1.2)
 mtext(side=2, line=2, "Count of Pokémon", col="blue", font=2, cex=1.2)
 
 
-  
+?summary()
+?initializeDataFrame()
+?poke.filter()
 
