@@ -50,4 +50,7 @@ Tuesday, 2/4/20
 Wednesday, 2/5/20
 * Fixed graph screenshot because the x-axis labels were cut off
 
+Thursday, 2/6/20
+* Organized git repository and demo.R file
+
 
