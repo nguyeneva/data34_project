@@ -1,14 +1,14 @@
-context("Testing summary and poke.filter functions")
+context("Testing poke.summary and poke.filter functions")
 
 # Initializing the pokeframe through API calls takes a long time, so testing functions that use the pokeframe is done from a csv dataframe
 # So that they CRAN server doesn't get too many requesets
 pokeframe <- read_csv("pokeframe.csv")
 
-# Testing the possible outputs of the summary function
+# Testing the possible outputs of the poke.summary function
 test_that("summary function is summarizing the data correctly",{
-  expect_equal_to_reference(summary(pokeframe, 'habitat'), 'habitat.rds')
-  expect_equal_to_reference(summary(pokeframe, 'type'), 'type.rds')
-  expect_output(summary(pokeframe, 'test'), "Invalid Request")
+  expect_equal_to_reference(poke.summary(pokeframe, 'habitat'), 'habitat.rds')
+  expect_equal_to_reference(poke.summary(pokeframe, 'type'), 'type.rds')
+  expect_output(poke.summary(pokeframe, 'test'), "Invalid Request")
 })
 
 # Testing the possible outputs of the poke.filter function

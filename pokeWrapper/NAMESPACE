@@ -2,8 +2,8 @@
 
 export(initializeDataFrame)
 export(poke.filter)
+export(poke.summary)
 export(poke_api)
-export(summary)
 import(dplyr)
 import(httr)
 import(jsonlite)

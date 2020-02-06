@@ -10,7 +10,7 @@ initializeDataFrame()
 A data frame
 }
 \description{
-The initializeDataFrame() function sends two get requests to Pokemon API. The API calls
+The initializeDataFrame() function sends two get requests to Pokémon API. The API calls
 return data in the format of JSON and gets parsed by jsonlite. Data from both API
 calls are appended to a data frame.
 }

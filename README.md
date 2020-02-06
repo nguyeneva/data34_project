@@ -101,8 +101,8 @@ If an incorrectly spelled Pokémon name, or a non-generation 1 Pokémon is passe
 
 If the pokeframe passed into the function is not a data frame then a message will be printed on the R Console indicating that the `pokeframe` must be a data frame.
 
-## Using the <font size="4">summary</font> Function
-The `summary()` function can be used to provide a data frame summary for the following information:
+## Using the <font size="4">poke.summary</font> Function
+The `poke.summary()` function can be used to provide a data frame summary for the following information:
 
 - **Habitat:**
   - Count of Pokémon per habitat
@@ -114,7 +114,7 @@ The `summary()` function can be used to provide a data frame summary for the fol
 **For example:**
 **Using habitat option**
 ```
-summary(pokeframe, 'habitat')
+poke.summary(pokeframe, 'habitat')
 ```
 ```
 ## # A tibble: 9 x 3
@@ -132,7 +132,7 @@ summary(pokeframe, 'habitat')
 ```
 **Using type option**
 ```
-summary(pokeframe, 'type')
+poke.summary(pokeframe, 'type')
 ```
 ```
 ## # A tibble: 38 x 3
@@ -151,20 +151,20 @@ summary(pokeframe, 'type')
 ## # … with 28 more rows
 ```
 
-## Incorrect Inputs for the <font size="4">summary</font> Function
-If an incorrect parameter is passed into the summary function a message will be printed in the R Console stating that the request was invalid.
+## Incorrect Inputs for the <font size="4">poke.summary</font> Function
+If an incorrect parameter is passed into the poke.summary function a message will be printed in the R Console stating that the request was invalid.
 
 ## Plotting with <font size="4">pokeWrapper</font>
 The summary data can be plotted through the following steps:
 
 1. Create a `pokeframe`
-2. Run the `summary()` function on the desired parameters and store the resulting data frame
+2. Run the `poke.summary()` function on the desired parameters and store the resulting data frame
 3. Plot the resulting data frame
 
 **Code Example:**
 ```
 pokeframe <- initializeDataFrame()
-habitatSummary <- summary(pokeframe, 'habitat')
+habitatSummary <- poke.summary(pokeframe, 'habitat')
 barplot(habitatSummary$pokemonCount, names.arg=habitatSummary$habitat, las=2,col="#FFCC33")
 par(mar=c(7,3,3,0))
 mtext(side=3, line=0.5, "Count of Pokemon by Habitat", col="red", font=3, cex=2)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/pokeWrapper.R
 \name{poke.filter}
 \alias{poke.filter}
-\title{Create a Data Frame Filtered by Pokemon}
+\title{Create a Data Frame Filtered by Pokémon}
 \usage{
 poke.filter(pokeframe, vec)
 }
