@@ -1,8 +1,7 @@
 ## Pokémon API R Wrapper
 ##### Authors: Connor Lee and Eva Nguyen
 
-Travis
-[![Build Status](https://travis-ci.org/nguyeneva/data534_project.svg?branch=master)](https://travis-ci.org/nguyeneva/data534_project)
+Travis [![Build Status](https://travis-ci.org/nguyeneva/data534_project.svg?branch=master)](https://travis-ci.org/nguyeneva/data534_project)
 
 AppVeyor [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/nguyeneva/data534_project?branch=master&svg=true)](https://ci.appveyor.com/project/nguyeneva/data534_project)
 
