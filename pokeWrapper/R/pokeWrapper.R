@@ -122,7 +122,7 @@ initializeDataFrame <- function(){
 
 #' Create a Data Frame with Aggregated Data from pokeframe
 #'
-#' The summary() function counts the number of Pokémon and mean of capture rate grouped
+#' The poke.summary() function counts the number of Pokémon and mean of capture rate grouped
 #' by either 'habitat' or type' from pokeframe data frame.
 #'
 #'
@@ -134,11 +134,11 @@ initializeDataFrame <- function(){
 #'
 #' @examples
 #' \dontrun{
-#' summary(pokeframe, 'habitat')
-#' summary(pokeframe, 'type')
+#' poke.summary(pokeframe, 'habitat')
+#' poke.summary(pokeframe, 'type')
 #' }
 
-summary <- function(pokeframe, infoType){
+poke.summary <- function(pokeframe, infoType){
   if (infoType == "habitat"){
     # Count of pokemon in each habitat
     group_by(pokeframe, habitat) %>% summarise(pokemonCount=n(), meanCaptureRate=round(mean(captureRate, na.rm = TRUE)))
